@@ -1,0 +1,8 @@
+[success]
+host1
+host2
+host3
+
+[failure]
+host4
+host5

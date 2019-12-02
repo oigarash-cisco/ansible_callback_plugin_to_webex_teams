@@ -1,0 +1,15 @@
+---
+- name: Sample Playbook to send WebEx message when Playbook complete
+  gather_facts: no
+  hosts: all
+  connection: local
+  vars:
+    notify_webex_destination: foobar@example.com
+    notify_webex_when_finished: The playbook completed
+    notify_webex_when_success: "{{ inventory_hostname }} succeeded"
+    notify_webex_when_failed: "{{ inventory_hostname }} failed"
+  tasks:
+    - name: Makes some hosts fail
+      fail:
+        msg: "{{ groups }}"
+      when: inventory_hostname in groups.failure
